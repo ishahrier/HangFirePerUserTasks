@@ -20,8 +20,11 @@ namespace Common {
         RunType RunType { get; set; }
         T GetOption<T> (string key);
         void SetOption (string key, object value);
+        bool HasOption (string key);
         Dictionary<string, object> BuildObjectDictionary ();
         void InitializeFromDictionary (Dictionary<string, object> options);
 
+        void PrintOptions ();
+        string ToJson ();
     }
 }

@@ -11,8 +11,10 @@ namespace TestConsoleApp {
                 name = "ROnnie",
                     age = 100
             });
-            Console.WriteLine (m.GetOption<temp> ("obj").age);
+            var obj = m.GetOption<temp> ("obj");
 
+            m.PrintOptions ();
+            Console.WriteLine (m.ToJson ());
         }
     }
 
