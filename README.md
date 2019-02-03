@@ -2,7 +2,7 @@
 
 
 
-#### This solution shows the following use cases using HangFire
+#### This solution shows the following use cases using  [HangFire](https://www.hangfire.io/)
 
 > 1. Hangfire tasks associated with users
 > 2. Remote task cancellation
