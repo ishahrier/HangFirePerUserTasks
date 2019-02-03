@@ -15,6 +15,7 @@ namespace TestConsoleApp {
 
             m.PrintOptions ();
             Console.WriteLine (m.ToJson ());
+
         }
     }
 
