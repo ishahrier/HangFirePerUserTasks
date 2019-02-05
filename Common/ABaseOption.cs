@@ -8,9 +8,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Common {
-    public abstract class ABaseOption : IBaseOption {
+    public abstract class ABaseOptions : IBaseOptions {
         public Dictionary<string, object> _Options;
-        public ABaseOption () => _Options = new Dictionary<string, object> ();
+        public ABaseOptions () => _Options = new Dictionary<string, object> ();
 
         public string UserId {
             get => GetOption<string> ("UserId");

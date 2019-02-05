@@ -11,7 +11,7 @@ namespace Common {
         Sync,
         Async
     }
-    public interface IBaseOption {
+    public interface IBaseOptions {
         int TaskId { get; set; }
         string UserId { get; set; }
         TimeZoneInfo TimeZone { get; set; }
