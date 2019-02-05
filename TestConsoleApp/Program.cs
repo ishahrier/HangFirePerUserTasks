@@ -5,7 +5,6 @@ namespace TestConsoleApp {
         static void Main (string[] args) {
             MyOption m = new MyOption ();
             m.UserId = "100";
-            m.HfJobId = "job1";
 
             m.SetOption ("obj", new temp () {
                 name = "ROnnie",

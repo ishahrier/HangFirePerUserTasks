@@ -12,8 +12,8 @@ namespace Common {
         Async
     }
     public interface IBaseOption {
+        int TaskId { get; set; }
         string UserId { get; set; }
-        string HfJobId { get; set; }
         TimeZoneInfo TimeZone { get; set; }
         long UserTaskId { get; set; }
         JobType JobType { get; set; }

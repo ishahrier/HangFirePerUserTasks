@@ -16,10 +16,6 @@ namespace Common {
             get => GetOption<string> ("UserId");
             set => SetOption ("UserId", value);
         }
-        public string HfJobId {
-            get => GetOption<string> ("HfJobId");
-            set => SetOption ("HfJobId", value);
-        }
         public TimeZoneInfo TimeZone {
             get => GetOption<TimeZoneInfo> ("TimeZoneInfo");
             set => SetOption ("TimeZoneInfo", value);
@@ -35,6 +31,10 @@ namespace Common {
         public RunType RunType {
             get => GetOption<RunType> ("RunType");
             set => SetOption ("RunType", value);
+        }
+        public int TaskId {
+            get => GetOption<int> ("TaskId");
+            set => SetOption ("TaskId", value);
         }
 
         public Dictionary<string, object> BuildObjectDictionary () => _Options;
