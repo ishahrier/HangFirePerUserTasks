@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -23,6 +24,7 @@ namespace TestWebClientServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHangfire(x => x.UseSqlServerStorage(Configuration.GetConnectionString("HangFireDb")));
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -48,7 +50,8 @@ namespace TestWebClientServer
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+            app.UseHangfireDashboard();
+            app.UseHangfireServer();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
