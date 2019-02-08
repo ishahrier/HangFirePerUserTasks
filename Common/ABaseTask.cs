@@ -12,7 +12,11 @@ namespace Exico.HangFire.Common
             this._Options = options;
         }
         protected IFireAndForgetOptions _Options { get; set; }
-        public virtual async Task Run(string jsonOptions, IJobCancellationToken cancellationToken) => await Task.Run(() => InitiaLizeOption(jsonOptions));
+        public virtual async Task Run(string jsonOptions, IJobCancellationToken cancellationToken)
+        {
+            await Task.Run(() => InitiaLizeOption(jsonOptions));
+        }
+
         protected void InitiaLizeOption(string jsonOptoins)
         {
             var setting = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
