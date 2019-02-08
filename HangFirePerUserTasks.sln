@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{D8B6EAA0-345B-4EA0-93A1-7842253FE404}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exico.HangFire.Common", "Common\Exico.HangFire.Common.csproj", "{D8B6EAA0-345B-4EA0-93A1-7842253FE404}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsoleApp", "TestConsoleApp\TestConsoleApp.csproj", "{AD2E980C-DAA1-466F-BD0B-CC18052509F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebClientServer", "TestWebClientServer\TestWebClientServer.csproj", "{B2E5DD5D-F361-48CD-8265-278A4514E382}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebClientServer", "TestWebClientServer\TestWebClientServer.csproj", "{B2E5DD5D-F361-48CD-8265-278A4514E382}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
