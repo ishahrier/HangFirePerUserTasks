@@ -28,6 +28,7 @@ namespace Exico.HangFire.Common
                 "Job that is based on method `{0}` has been created with id `{1}`",
                 context.Job.Method.Name,
                 context.BackgroundJob?.Id);
+
         }
 
         public void OnPerforming(PerformingContext context)
