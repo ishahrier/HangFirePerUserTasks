@@ -7,7 +7,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Common {
+namespace Exico.HangFire.Common {
     public abstract class ABaseOptions : IBaseOptions {
         public Dictionary<string, object> _Options;
         public ABaseOptions () => _Options = new Dictionary<string, object> ();

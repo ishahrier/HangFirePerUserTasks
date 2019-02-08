@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 
-namespace Common
+namespace Exico.HangFire.Common
 {
     public abstract class ABaseFireAndForgetTask : IFireAndForgetTask
     {
