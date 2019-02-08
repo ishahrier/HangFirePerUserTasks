@@ -44,6 +44,7 @@ namespace Common {
         public bool HasOption (string key) => _Options.ContainsKey (key);
 
         public void InitializeFromDictionary (Dictionary<string, object> options) => this._Options = options;
+
         public void SetOption (string key, object value) => _Options[key] = value;
 
         public void PrintOptions () {
