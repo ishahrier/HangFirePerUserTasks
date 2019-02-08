@@ -23,8 +23,7 @@ namespace TestWebClientServer.Controllers
         public IActionResult Index()
         {
             Options.TaskId = 1;
-            Options.UserId = "0000000000000000000000000000000000000000000000000000000";
-            Options.JobType = JobType.FireAndForget;
+            Options.UserId = "0000000000000000000000000000000000000000000000000000000";            
             Options.SetOption("Person", new Temp()
             {
                 age = 100,
@@ -33,7 +32,7 @@ namespace TestWebClientServer.Controllers
            // Console.WriteLine(Options.GetOption<Temp>("Person").Name);
             JobManager j = new JobManager();
             j.CreateFireAndForgetJob(Options, BJobClient);            
-            return Content("Hellow");
+            return View();
         }
       
     }

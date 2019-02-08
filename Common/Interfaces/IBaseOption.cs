@@ -16,8 +16,8 @@ namespace Exico.HangFire.Common {
         string UserId { get; set; }
         TimeZoneInfo TimeZone { get; set; }
         long UserTaskId { get; set; }
-        string JobType { get; set; }
-        string RunType { get; set; }
+        string JobType { get;  }
+        string RunType { get;  }
         T GetOption<T> (string key);
         void SetOption (string key, object value);
         bool HasOption (string key);

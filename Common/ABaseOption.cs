@@ -9,8 +9,14 @@ using Newtonsoft.Json.Linq;
 
 namespace Exico.HangFire.Common {
     public abstract class ABaseOptions : IBaseOptions {
-        public Dictionary<string, object> _Options;
-        public ABaseOptions () => _Options = new Dictionary<string, object> ();
+
+        public ABaseOptions()
+        {
+            _Options = new Dictionary<string, object>();
+            RunType = Exico.HangFire.Common.RunType.ASync;
+        }
+
+        public Dictionary<string, object> _Options;       
 
         public string UserId {
             get => GetOption<string> ("UserId");
@@ -26,11 +32,11 @@ namespace Exico.HangFire.Common {
         }
         public string JobType {
             get => GetOption<string> ("JobType");
-            set => SetOption ("JobType", value);
+            protected set => SetOption ("JobType", value);
         }
         public string RunType {
             get =>  GetOption<string> ("RunType");
-            set => SetOption ("RunType", value);
+            protected set => SetOption ("RunType", value);
         }
         public int TaskId {
             get => GetOption<int> ("TaskId");
