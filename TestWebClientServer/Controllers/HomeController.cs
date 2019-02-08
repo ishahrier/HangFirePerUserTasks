@@ -29,7 +29,7 @@ namespace TestWebClientServer.Controllers
                 age = 100,
                 Name = "ishtiaque"
             });
-           // Console.WriteLine(Options.GetOption<Temp>("Person").Name);
+           // Console.WriteLine(Options.GetOption<Temp>("Person").Name); 
             JobManager j = new JobManager();
             j.CreateFireAndForgetJob(Options, BJobClient);            
             return View();
