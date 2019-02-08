@@ -24,7 +24,8 @@ namespace TestWebClientServer.Controllers
         {
             Options.UserId = "1";
             Options.SetOption("name", "ishtiaque");
-            BJobClient.Enqueue<IFireAndForgetTask>(x=>x.Run(Options.ToJson(),JobCancellationToken.Null));
+            JobManager j = new JobManager();
+            j.CreateFireAndForgetJob(Options, BJobClient);
             return View();
         }
       
