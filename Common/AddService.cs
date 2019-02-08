@@ -1,14 +1,13 @@
-﻿using Hangfire;
+﻿using Hangfire; 
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace Exico.HangFire.Common
 {
-    public static class _AddExicoHfService
+    public static class AddService
     {
-        public static void AddExicoHfService(this IServiceCollection services )
+        public static void AddExicoHfExtension(this IServiceCollection services )
         {
             services.AddScoped<IFireAndForgetTaskOptions, FireAndForgetTaskOptions>();
             services.AddScoped<IScheduledTaskOptions, ScheduledTaskOptions>();

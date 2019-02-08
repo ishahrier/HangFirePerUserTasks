@@ -35,19 +35,14 @@ namespace TestWebClientServer
             Configuration = configuration;
         }
 
-        private void AddRequiredServices(IServiceCollection services)
-        {
-            services.AddScoped<IFireAndForgetTask, MyFnFTask>();
-        }
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            AddRequiredServices(services);
+            services.AddScoped<IFireAndForgetTask, MyFnFTask>();            
             services.AddHangfire(x => x.UseSqlServerStorage(Configuration.GetConnectionString("HangFireDb")));
-            services.AddExicoHfService();
+            services.AddExicoHfExtension();
             services.Configure<CookiePolicyOptions>(options =>
             {
                 options.CheckConsentNeeded = context => true;
