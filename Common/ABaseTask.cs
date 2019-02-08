@@ -5,24 +5,25 @@ using System.Threading.Tasks;
 
 namespace Exico.HangFire.Common
 {
-    public abstract class ABaseFireAndForgetTask : IFireAndForgetTask
+    public abstract class ABaseTask : IBaseTask
     {
-        public ABaseFireAndForgetTask(IFireAndForgetOptions options)
+        public ABaseTask(IBaseTaskOptions options)
         {
             this._Options = options;
         }
-        protected IFireAndForgetOptions _Options { get; set; }
+        protected IBaseTaskOptions _Options { get; set; }
         public virtual async Task Run(string jsonOptions, IJobCancellationToken cancellationToken)
         {
             await Task.Run(() => InitiaLizeOption(jsonOptions));
         }
+
+        public abstract void UpdateTaskStatus();
 
         protected void InitiaLizeOption(string jsonOptoins)
         {
             var setting = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
             _Options.InitializeFromDictionary(JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonOptoins, setting));
         }
-
-        public abstract void UpdateTaskStatus();
+       
     }
 }

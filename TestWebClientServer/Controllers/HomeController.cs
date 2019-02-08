@@ -12,26 +12,19 @@ namespace TestWebClientServer.Controllers
 {
     public class HomeController : Controller
     {
-        public IFireAndForgetOptions Options { get; }
+        public IFireAndForgetTaskOptions Options { get; }
         public IBackgroundJobClient BJobClient { get; }
 
-        public HomeController(IBackgroundJobClient client,IFireAndForgetOptions options)
+        public HomeController(IBackgroundJobClient client,IFireAndForgetTaskOptions options)
         {
             this.Options = options;
             this.BJobClient = client;
         }
         public IActionResult Index()
         {
-            Options.TaskId = 1;
-            Options.UserId = "0000000000000000000000000000000000000000000000000000000";            
-            Options.SetOption("Person", new Temp()
-            {
-                age = 100,
-                Name = "ishtiaque"
-            });
-           // Console.WriteLine(Options.GetOption<Temp>("Person").Name); 
-            JobManager j = new JobManager();
-            j.CreateFireAndForgetJob(Options, BJobClient);            
+            Options.UserId = "1";
+            Options.SetOption("name", "ishtiaque");
+            BJobClient.Enqueue<IFireAndForgetTask>(x=>x.Run(Options.ToJson(),JobCancellationToken.Null));
             return View();
         }
       

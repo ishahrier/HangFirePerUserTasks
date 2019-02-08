@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Exico.HangFire.Common {
-    public abstract class ABaseOptions : IBaseOptions {
+    public abstract class ABaseOptions : IBaseTaskOptions {
 
         public ABaseOptions()
         {
@@ -45,14 +45,9 @@ namespace Exico.HangFire.Common {
 
         public Dictionary<string, object> BuildObjectDictionary () => _Options;
 
-        public T GetOption<T>(string key)
-        {
-            var ret =  _Options.ContainsKey(key) ? (T)(_Options[key]) : default(T);
+        public T GetOption<T>(string key) => _Options.ContainsKey(key.ToLower()) ? (T)(_Options[key.ToLower()]) : default(T);
 
-            return ret;
-        }
-
-        public bool HasOption (string key) => _Options.ContainsKey (key);
+        public bool HasOption (string key) => _Options.ContainsKey (key.ToLower());
 
         public void InitializeFromDictionary (Dictionary<string, object> options) => this._Options = options;
 

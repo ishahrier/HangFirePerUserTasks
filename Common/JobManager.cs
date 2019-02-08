@@ -1,7 +1,7 @@
 using Hangfire;
 namespace Exico.HangFire.Common {
     public class JobManager {
-        public void CreateFireAndForgetJob (IFireAndForgetOptions options, IBackgroundJobClient hfClient) {
+        public void CreateFireAndForgetJob (IFireAndForgetTaskOptions options, IBackgroundJobClient hfClient) {
             hfClient.Enqueue<IFireAndForgetTask> (x => x.Run (options.ToJson (), JobCancellationToken.Null));
         }
     }

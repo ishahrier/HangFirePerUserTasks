@@ -11,7 +11,7 @@ namespace Exico.HangFire.Common {
         public const string Sync = "Sync";
         public const string ASync = "ASync";
     }
-    public interface IBaseOptions {
+    public interface IBaseTaskOptions {
         int TaskId { get; set; }
         string UserId { get; set; }
         TimeZoneInfo TimeZone { get; set; }

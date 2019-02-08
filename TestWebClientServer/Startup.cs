@@ -13,6 +13,22 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace TestWebClientServer
 {
+    public class MyFnFTask : ABaseFireAndForgetTask
+    {
+        public MyFnFTask(IFireAndForgetTaskOptions options):base(options)
+        {
+
+        }
+        public override async Task Run(string jsonOptions, IJobCancellationToken cancellationToken)
+        {
+             await base.Run(jsonOptions, cancellationToken);
+            Console.WriteLine(this._Options.GetOption<string>("name"));
+        }
+        public override void UpdateTaskStatus()
+        {
+           
+        }
+    }
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -22,8 +38,9 @@ namespace TestWebClientServer
 
         private void AddRequiredServices(IServiceCollection services)
         {
-            services.AddScoped<IFireAndForgetOptions,FireAndForgetOptions>();
-            services.AddScoped<IFireAndForgetTask, MyFireAndForgetTask>();
+            services.AddScoped<IFireAndForgetTaskOptions,FireAndForgetTaskOptions>();
+            services.AddScoped<IFireAndForgetTask, MyFnFTask>();
+
         }
         public IConfiguration Configuration { get; }
 
