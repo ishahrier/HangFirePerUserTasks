@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>Exico.HangFire.Common</RootNamespace>
+    <AssemblyName>Exico.HangFire.Common</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

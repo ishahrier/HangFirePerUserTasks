@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Exico.HangFire.Common;
 using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,11 +20,17 @@ namespace TestWebClientServer
             Configuration = configuration;
         }
 
+        private void AddRequiredServices(IServiceCollection services)
+        {
+            services.AddScoped<IFireAndForgetOptions,FireAndForgetOptions>();
+            services.AddScoped<IFireAndForgetTask, MyFireAndForgetTask>();
+        }
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            AddRequiredServices(services);
             services.AddHangfire(x => x.UseSqlServerStorage(Configuration.GetConnectionString("HangFireDb")));
             services.Configure<CookiePolicyOptions>(options =>
             {
