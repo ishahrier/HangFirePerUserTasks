@@ -7,7 +7,7 @@ using Exico.HangFire.Common;
 using Hangfire;
 using Microsoft.AspNetCore.Mvc;
 using TestWebClientServer.Models;
-
+using Newtonsoft.Json;
 namespace TestWebClientServer.Controllers
 {
     public class HomeController : Controller
@@ -22,15 +22,20 @@ namespace TestWebClientServer.Controllers
         }
         public IActionResult Index()
         {
+            Options.TaskId = 1;
+            Options.UserId = "0000000000000000000000000000000000000000000000000000000";
+            Options.JobType = JobType.FireAndForget;
+            Options.SetOption("Person", new Temp()
+            {
+                age = 100,
+                Name = "ishtiaque"
+            });
+           // Console.WriteLine(Options.GetOption<Temp>("Person").Name);
+            JobManager j = new JobManager();
+            j.CreateFireAndForgetJob(Options, BJobClient);            
             return Content("Hellow");
         }
-
-        public IActionResult Create()
-        {
-            JobManager j = new JobManager();
-            Options.JobType = JobType.FireAndForget;
-            Options.UserId = "115555444477788";
-            return Content("Task Created");
-        }
+      
     }
+
 }

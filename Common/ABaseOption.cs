@@ -24,12 +24,12 @@ namespace Exico.HangFire.Common {
             get => GetOption<long> ("UserTaskId");
             set => SetOption ("UserTaskId", value);
         }
-        public JobType JobType {
-            get => GetOption<JobType> ("JobTYpe");
-            set => SetOption ("JobTYpe", value);
+        public string JobType {
+            get => GetOption<string> ("JobType");
+            set => SetOption ("JobType", value);
         }
-        public RunType RunType {
-            get => GetOption<RunType> ("RunType");
+        public string RunType {
+            get =>  GetOption<string> ("RunType");
             set => SetOption ("RunType", value);
         }
         public int TaskId {
@@ -39,7 +39,12 @@ namespace Exico.HangFire.Common {
 
         public Dictionary<string, object> BuildObjectDictionary () => _Options;
 
-        public T GetOption<T> (string key) => _Options.ContainsKey (key) ? (T) (_Options[key]) : default (T);
+        public T GetOption<T>(string key)
+        {
+            var ret =  _Options.ContainsKey(key) ? (T)(_Options[key]) : default(T);
+
+            return ret;
+        }
 
         public bool HasOption (string key) => _Options.ContainsKey (key);
 
@@ -55,7 +60,7 @@ namespace Exico.HangFire.Common {
 
         public string ToJson () {
             var setting = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
-            return JsonConvert.SerializeObject (this._Options, setting);
+            return JsonConvert.SerializeObject (this._Options,setting);
         }
     }
 }

@@ -2,22 +2,22 @@ using System;
 using System.Collections.Generic;
 
 namespace Exico.HangFire.Common {
-    public enum JobType {
-        FireAndForget,
-        Scheduled,
-        Recurring
+    public struct JobType {
+        public const string FireAndForget = "FireAndForget";
+        public const string Scheduled = "Scheduled";
+        public const string Recurring = "Recurring";
     }
-    public enum RunType {
-        Sync,
-        Async
+    public struct RunType {
+        public const string Sync = "Sync";
+        public const string ASync = "ASync";
     }
     public interface IBaseOptions {
         int TaskId { get; set; }
         string UserId { get; set; }
         TimeZoneInfo TimeZone { get; set; }
         long UserTaskId { get; set; }
-        JobType JobType { get; set; }
-        RunType RunType { get; set; }
+        string JobType { get; set; }
+        string RunType { get; set; }
         T GetOption<T> (string key);
         void SetOption (string key, object value);
         bool HasOption (string key);
