@@ -9,6 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsoleApp", "TestConso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebClientServer", "TestWebClientServer\TestWebClientServer.csproj", "{B2E5DD5D-F361-48CD-8265-278A4514E382}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{171C9488-C987-4CCE-9B43-FA66CCC51169}"
+	ProjectSection(SolutionItems) = preProject
+		NextSteps.txt = NextSteps.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

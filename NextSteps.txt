@@ -1,0 +1,22 @@
+all tasks have some basic set of options (abaseoptions)
+atasks hase some base tasks activities (abasetask)
+all scheduled tasks is derived from a abasescheduled tasks
+all fire and forget tasks are derived froma base fire and forget tasks abasefireandforgettask
+
+job manager class is incomplete. this will create a job in the db first then get the id
+then create the hangfire job passing an option to the task class that options will have the id of the user task
+(not the hangfire job id ).
+
+now question is how would you update the user tasks table when hangfire does different things in different staage
+like how do you know when you task is enquered (note that you do not have the hangfire job id in the option class only the 
+user tasks table id) ? answer is i will use the job filter.
+
+NEXT step is to try
+
+1. extract the option that is lassed to the tasks during the job filter and from that string options
+, we create the option object and get the user tasks table id and then go to that table and update the tasks table
+with the hangfire id and the status of the job.
+
+now challenege is that i do not know how to inject dependency injection in the jobfilter class, becuase i need to inject application dbcontext
+to talk to the database to update the table.so this is where i am at now.... ;-)
+
